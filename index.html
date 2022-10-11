@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoo Animal Game</title>
+    <!-- linked our favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <!-- linked css framework  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <!-- linked our custom stylesheet  -->
     <link rel="stylesheet" href="./assets/css/style.css"/>
 </head>
@@ -24,8 +27,12 @@
     
             <div id="img-container">
                 <span><img src="" id="blur-image"/></span>
+
+                <div id="input-container">
+                    <input class="input" type="text" placeholder="Guess the Animal!">
+                    <button class="button">Submit Guess</button>
+                </div>
             </div>
-        
         
             <div id="card-container">
                 <div class="clue" id="clue-1">
@@ -152,8 +159,9 @@
             </div>
         </div>
         
+        
     </section>
-    
+     
 <!-- linked our custom js  -->
 <script src="./assets/js/script.js"></script>
 
