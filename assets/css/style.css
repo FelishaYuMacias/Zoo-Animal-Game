@@ -1,3 +1,22 @@
 body{
     background-color: blue;
+    display:block;
+    color: aliceblue;
+}
+header {
+text-align: center;
+}
+#startGame {
+    align-content: center;
+}
+.clue {
+background-color: yellow;
+min-height: 300px;
+width: 30%;
+display: inline-flex;
+margin: 10px;
+color: black;
+}
+h2 {
+    text-align: center;
 }
