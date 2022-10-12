@@ -68,16 +68,18 @@ function playZooGame () {
       } else {
         clueFirstwordEl.textContent = 'There is only one word';
       }
+    //   use action instead of parse
       var wikiLink = "https://en.wikipedia.org/w/api.php?action=parse&page=" + currentAnimalName.toLowerCase() +"&format=json&origin=*" 
 
       fetch(wikiLink,{
         cache: "reload",
       })
       .then(function (response) {
+        // may need to use JSON.parse(response)
         return response.json();
       })
       .then(function (data) {
-        console.log(data.parse.text["*"]);
+        console.log(data);
         wikiInfo.innerHTML=data.parse.text["*"]
       })
     })
