@@ -6,6 +6,10 @@ body{
 header {
 text-align: center;
 }
+.hide {
+  display: none;
+}
+
 #startGame {
     align-content: center;
 }
