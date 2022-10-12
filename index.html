@@ -18,21 +18,50 @@
             <h1>Welcome to the Zoo Animal Game!</h1>
         </header>
         <main>
-            <p>You will be presented with a random zoo animal o guess. Choose what clues you want to reveal to help you guess correctly. Be careful! Each clue will deduct points from your total as will wrong guesses. Your points when you guess correctly will be your score for the game. Regardless of whether you can guess the animal, you will be given more information at the end of the game.</p>
+            <p>You will be presented with a random zoo animal to guess. Choose what clues you want to reveal to help you guess correctly. Be careful! Each clue will deduct points from your total as will wrong guesses. Your points when you guess correctly will be your score for the game. Regardless of whether you can guess the animal, you will be given more information at the end of the game.</p>
             <button id="startGame">Start Game</button>
+            <p>Your current banana bunch is: <span id = "score-span"><b>200</b></span> bananas</p>
         </main>
     </section>
     <section id="gamePage">
+        <!-- modal for wrong answer -->
+        <div class="modal" id="incorrect">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <p class="image is-4by3">
+                <img src="./assets/images/cute-baby-elephant-cartoon-vector-31024696.jpg" alt="elephant sketch gently saying to guess again">
+
+              </p>
+              <button id = "quit-game">Quit Game?</button>
+              <button id = "guess-again">Guess Again?</button>
+            </div>
+          </div>
+
+          <!-- modal for correct answer -->
+          <div class="modal" id="correct">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <p class="image is-4by3">
+                <img id="correctly-guessed-picture"src="" alt="Image of the correctly guessed animal">
+              </p>
+              <button id = "see-info">See Info?</button>
+              <button id = "play-again">Play Again?</button>
+            </div>
+          </div>
+
+
         <div class="container">
     
             <div id="img-container">
                 <span><img src="" id="blur-image"/></span>
 
                 <div id="input-container">
-                    <input class="input" type="text" placeholder="Guess the Animal!">
-                    <button class="button">Submit Guess</button>
+                    <input class="input" id="user-guess-input" type="text" placeholder="Guess the Animal!">
+                    <button class="button" id="guess-animal-button">Submit Guess</button>
                 </div>
             </div>
+
+
         
             <div id="card-container">
                 <div class="clue" id="clue-1">
@@ -163,6 +192,7 @@
     </section>
      
 <!-- linked our custom js  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./assets/js/script.js"></script>
 
 </body>
