@@ -9,17 +9,19 @@
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <!-- linked css framework  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="./dist/rpgui.css" rel="stylesheet" type="text/css" >
+    <script src="./dist/rpgui.js"></script>   
     <!-- linked our custom stylesheet  -->
     <link rel="stylesheet" href="./assets/css/style.css"/>
 </head>
-<body>
-    <section id="startPage">
+<body class="rpgui-content">
+    <section id="startPage" class="rpgui-container framed rpgui-center">
         <header>
             <h1>Welcome to the Zoo Animal Game!</h1>
         </header>
         <main>
-            <p>You will be presented with a random zoo animal to guess. Choose what clues you want to reveal to help you guess correctly. Be careful! Each clue will deduct points from your total as will wrong guesses. Your points when you guess correctly will be your score for the game. Regardless of whether you can guess the animal, you will be given more information at the end of the game.</p>
-            <button id="startGame">Start Game</button>
+            <p>You will be presented with a random zoo animal o guess. Choose what clues you want to reveal to help you guess correctly. Be careful! Each clue will deduct bananas from your bunch as will wrong guesses. Your bananas left in your bunch when you guess correctly will be your score for the game. Regardless of whether you can guess the animal, you will be given more information at the end of the game.</p>
+            <button id="startGame"class="rpgui-button" type="button">Start Game</button>
             <p>Your current banana bunch is: <span id = "score-span"><b>200</b></span> bananas</p>
         </main>
     </section>
@@ -52,19 +54,20 @@
         <div class="modal" id="info">
             <div class="modal-background"></div>
             <div class="modal-content">
-            <div id="wiki-info"></div>
+                <div id="wiki-info"></div>
             </div>
         </div>
 
 
-        <div class="container">
+        <div class="container rpgui-container framed rpgui-draggable">
     
             <div id="img-container">
                 <span><img src="" id="blur-image"/></span>
 
                 <div id="input-container">
-                    <input class="input" id="user-guess-input" type="text" placeholder="Guess the Animal!">
-                    <button class="button" id="guess-animal-button">Submit Guess</button>
+                    <label>Your Guess Here:</label>
+                    <input class="input is large"type="text" name="Animal Guess" value="Guess the Animal" placeholder="Guess the Animal!" id="user-guess-input">
+                    <button class="rpgui-button button"type="button" id="guess-animal-button">Submit Guess</button>
                 </div>
             </div>
 

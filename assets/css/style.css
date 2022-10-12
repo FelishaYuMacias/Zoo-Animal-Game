@@ -1,6 +1,6 @@
 body{
-    background-color: blue;
-    display:block;
+  background-color: rgb(60,64,67);
+  display:block;
     color: aliceblue;
 }
 header {
@@ -10,7 +10,7 @@ text-align: center;
     align-content: center;
 }
 .clue {
-background-color: yellow;
+/* background-color: yellow; */
 /* min-height: 300px; */
 width: 30%;
 display: inline-flex;
@@ -54,12 +54,12 @@ h2 {
   }
   
   .flip-card-front {
-    background-color: #bbb;
+    background-color:rgb(60,64,67);
     color: black;
   }
   
   .flip-card-back {
-    background-color: #2980b9;
+    background-color: goldenrod;
     color: white;
     transform: rotateY(180deg);
     overflow: hidden;
@@ -69,7 +69,7 @@ h2 {
     width:90%;margin:0 auto;
     display:flex;
     flex-wrap: wrap;
-    background-color: bisque;
+    background-color:  rgb(203, 119, 17);
 }
 
 #cropped-img-frame {
@@ -99,7 +99,7 @@ h2 {
     width:58%;margin:0 auto;
     display:flex;
     flex-wrap: wrap;
-    background-color: bisque;
+    background-color: rgb(203, 119, 17);
 }
 #img-container img{width:100%;filter:blur(30px)} 
 #card-container2 .clue{width:180px;height:180px;}
