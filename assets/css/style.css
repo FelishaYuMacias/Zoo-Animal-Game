@@ -6,6 +6,10 @@ body{
 header {
 text-align: center;
 }
+.hide {
+  display: none;
+}
+
 #startGame {
     align-content: center;
 }
@@ -73,12 +77,13 @@ h2 {
 }
 
 #cropped-img-frame {
-    width: 100px; 
-    height: 100px; 
-    overflow: hidden;
-    display:block;
-    margin:0 auto;
-}
+  width: 130px; 
+  height: 130px; 
+  display:block;
+  margin:0 auto;
+  background-position:center;
+  background-size:800px;
+}    
     
 
 
