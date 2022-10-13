@@ -18,6 +18,7 @@ var currentAnimalName;
 var startGameBtn = document.getElementById("startGame")
 var startPage = document.getElementById("startPage")
 var gamePage = document.getElementById("gamePage")
+var startImage = document.getElementById("startImage")
 //tags modal
 var modalContainerCorrect= document.getElementById("correct");
 var modalContainerIncorrect= document.getElementById("incorrect");
@@ -45,7 +46,24 @@ var clueArray = [clue1, clue2, clue3, clue4, clue5, clue6, clue7,clue8, clue9]
 // blur filter value
 var blurNum;
 
+//function to get Start Page Image from zoo API
+function getStartImage (){
+  var apiLink = "https://zoo-animal-api.herokuapp.com/animals/rand"
+  fetch(apiLink, {
+    cache: "reload",
+  })
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    // data.image_link
+    
+    startImage.setAttribute("src", data.image_link);
+})
+}
 
+getStartImage()
 //this is the main function to play our game, it is also where the zoo animal api is accessed
 function playZooGame () {
     var apiLink = "https://zoo-animal-api.herokuapp.com/animals/rand"
