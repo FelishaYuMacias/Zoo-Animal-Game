@@ -153,17 +153,25 @@ function youtubeAPILoop() {
 guessAnimalButton.addEventListener('click', function(event){
     // console.log(userGuessInput.value);
     
-    if (currentAnimalName.toLowerCase().includes(userGuessInput.value.toLowerCase())) {
+    if (userGuessInput.value.trim() === ""){
+      console.log("enter a value")
+    } else if (currentAnimalName.toLowerCase().includes(userGuessInput.value.trim().toLowerCase())) {
+        score += 100;
+        scoreSpan.textContent = score;
+        console.log(score);
         modalContainerCorrect.setAttribute("class", "modal is-active");
         console.log("Great guess!");
     } else {
         //subtract points
         score -= 50;
+        console.log(score);
+
         scoreSpan.textContent = score;
         //image pops up telling user their answer was incorrect
+        console.log("try again")
         modalContainerIncorrect.setAttribute("class", "modal is-active");
     };
-    userGuessInput.value = " ";
+    userGuessInput.value = "";
 })
 
 clue1.addEventListener('click', function(event){
@@ -255,6 +263,8 @@ clue9.addEventListener('click', function(event){
 
     playAgain.addEventListener("click", function(event){
         closeModal(event.target.parentElement.parentElement);
+        score = 300;
+        scoreSpan.textContent = score;
         // clue1.setAttribute("class", " clue flip-card-front")
         playZooGame ();
 
