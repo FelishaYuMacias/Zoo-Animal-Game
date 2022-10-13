@@ -71,8 +71,6 @@ function getStartImage (){
 getStartImage()
 //this is the main function to play our game, it is also where the zoo animal api is accessed
 function playZooGame () {
-    score = 300;
-    scoreSpan.textContent = score;
     var apiLink = "https://zoo-animal-api.herokuapp.com/animals/rand"
     
     // reset clue cards / image blur value
@@ -135,7 +133,6 @@ function youtubeAPILoop() {
   })
   .then(function (data) {
     console.log(data);
-
     info_nameEl.textContent = currentAnimalName;
     youtubeInfo.textContent = "";
     for (let i = 0; i < data.items.length; i++) {
@@ -162,7 +159,7 @@ function youtubeAPILoop() {
       thumbnailContainer.append(thumbnailURL, thumbArticle);
 
       youtubeInfo.appendChild(thumbnailContainer);
-      
+  
     }
     
     
@@ -322,6 +319,7 @@ clue9.addEventListener('click', function(event){
   })
 
   infoPlayAgainBtn.addEventListener('click', function(event){
+    
       closeModal(event.target.parentElement.parentElement);
       playZooGame ();
   })
