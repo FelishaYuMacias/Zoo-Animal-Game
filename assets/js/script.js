@@ -25,6 +25,7 @@ var quitGameBtn = document.getElementById("quit-game");
 var guessAgnBtn = document.getElementById("guess-again");
 var correctGuessPic = document.getElementById("correctly-guessed-picture");
 var playAgain = document.getElementById("play-again");
+var youtubeInfo = document.getElementById("youtube-info");
 var wikiInfo = document.getElementById("wiki-info")
 var seeInfo = document.getElementById("see-info")
 var info = document.getElementById("info")
@@ -89,27 +90,56 @@ function playZooGame () {
     //   use action instead of parse
     //   var wikiLink = "https://en.wikipedia.org/w/api.php?action=parse&page=" + currentAnimalName.toLowerCase() +"&format=json&origin=*" 
 
-      var wikiLinkTwo = "https://en.wikipedia.org/w/api.php?action=query&titles=" + currentAnimalName.toLowerCase() + "&prop=images|extlinks&format=json&origin=*"
+      // var wikiLinkTwo = "https://en.wikipedia.org/w/api.php?action=query&titles=" + currentAnimalName.toLowerCase() + "&prop=images|extlinks&format=json&origin=*"
+      youtubeAPILoop ();
 
-      fetch(wikiLinkTwo,{
-        cache: "reload",
-      })
-      .then(function (response) {
-        // may need to use JSON.parse(response)
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        // var pageID = 
-        // console.log(pageID);
-        // wikiInfo.innerHTML=data.query.pages.pageid.images[0];
-        
-      })
     })
 }
 
 playZooGame();
 
+function youtubeAPILoop() {
+  var key = "AIzaSyAEkx7deEPcjktkroCKQIJ7aH62J-beJ4U";
+  var youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + currentAnimalName + "animal&key="+key;
+
+  fetch(youtubeAPI,{
+    cache: "reload",
+  })
+  .then(function (response) {
+    // may need to use JSON.parse(response)
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+
+    for (let i = 0; i < data.items.length; i++) {
+      var videoID = data.items[i].id.videoId;
+      var videoThumbnail = data.items[i].snippet.thumbnails.default.url;
+      var snippetTitle = data.items[i].snippet.title;
+      var videoDescription = data.items[i].snippet.description;
+
+      var thumbnailContainer = document.createElement("section");
+      var thumbnailImage = document.createElement("img");
+      var thumbnailTitle = document.createElement("h3");
+      var descriptionParagraph = document.createElement("p");
+      var thumbnailURL = document.createElement("a");
+
+      thumbnailImage.setAttribute("src", videoThumbnail);
+      thumbnailTitle.textContent = snippetTitle;
+      descriptionParagraph.textContent = videoDescription;
+      thumbnailURL.appendChild(thumbnailImage);
+      thumbnailURL.setAttribute("href", "https://www.youtube.com/watch?v=" + videoID);
+      thumbnailURL.setAttribute("target", "_blank");
+
+      thumbnailContainer.append(thumbnailTitle, descriptionParagraph, thumbnailURL);
+
+      youtubeInfo.appendChild(thumbnailContainer);
+      
+    }
+    
+    
+  })
+}
 
 
 guessAnimalButton.addEventListener('click', function(event){
