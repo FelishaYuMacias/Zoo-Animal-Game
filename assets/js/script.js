@@ -71,6 +71,8 @@ function getStartImage (){
 getStartImage()
 //this is the main function to play our game, it is also where the zoo animal api is accessed
 function playZooGame () {
+    score = 300;
+    scoreSpan.textContent = score;
     var apiLink = "https://zoo-animal-api.herokuapp.com/animals/rand"
     
     // reset clue cards / image blur value
