@@ -20,36 +20,35 @@
             <h1>Welcome to the Zoo Animal Game!</h1>
         </header>
         <main>
-            <p>You will be presented with a random zoo animal o guess. Choose what clues you want to reveal to help you guess correctly. Be careful! Each clue will deduct bananas from your bunch as will wrong guesses. Your bananas left in your bunch when you guess correctly will be your score for the game. Regardless of whether you can guess the animal, you will be given more information at the end of the game.</p>
+            <p>You will be presented with a random zoo animal. Try to guess it's official name. You may choose what clues you want to reveal to help you guess correctly. Be careful! Each clue will deduct bananas from your bunch as will wrong guesses. Wrong guesses will also deduct bananas from your bunch.Your final score is the number of bananas you have left in your bunch. Regardless of whether you can guess the animal, you will be given more information at the end of the game.</p>
             <button id="startGame"class="rpgui-button" type="button">Start Game</button>
-            <p>Your current banana bunch is: <span id = "score-span"><b>200</b></span> bananas</p>
         </main>
     </section>
-    <section id="gamePage">
+    <section id="gamePage" class = "hide">
         <!-- modal for wrong answer -->
         <div class="modal" id="incorrect">
             <div class="modal-background"></div>
             <div class="modal-content">
-              <p class="image is-4by3">
-                <img src="./assets/images/cute-baby-elephant-cartoon-vector-31024696.jpg" alt="elephant sketch gently saying to guess again">
-
-              </p>
-              <button id = "quit-game">Quit Game?</button>
-              <button id = "guess-again">Guess Again?</button>
+                <p class="image is-4by3">
+                    <img src="./assets/images/cute-baby-elephant-cartoon-vector-31024696.jpg" alt="elephant sketch gently saying to guess again">
+                    
+                </p>
+                <button id = "quit-game">Quit Game?</button>
+                <button id = "guess-again">Guess Again?</button>
             </div>
-          </div>
-
-          <!-- modal for correct answer -->
-          <div class="modal" id="correct">
+        </div>
+        
+        <!-- modal for correct answer -->
+        <div class="modal" id="correct">
             <div class="modal-background"></div>
             <div class="modal-content">
-              <p class="image is-4by3">
-                <img id="correctly-guessed-picture"src="" alt="Image of the correctly guessed animal">
-              </p>
-              <button id = "see-info">See Info?</button>
-              <button id = "play-again">Play Again?</button>
+                <p class="image is-4by3">
+                    <img id="correctly-guessed-picture"src="" alt="Image of the correctly guessed animal">
+                </p>
+                <button id = "see-info">See Info?</button>
+                <button id = "play-again">Play Again?</button>
             </div>
-          </div>
+        </div>
         <!-- modal for wiki info -->
         <div class="modal" id="info">
             <div class="modal-background"></div>
@@ -57,16 +56,17 @@
                 <div id="wiki-info"></div>
             </div>
         </div>
-
-
+        
+        
         <div class="container rpgui-container framed rpgui-draggable">
-    
+            <p>Your current banana bunch is: <span id = "score-span"><b>300</b></span> bananas</p>
+            
             <div id="img-container">
                 <span><img src="" id="blur-image"/></span>
-
+                
                 <div id="input-container">
                     <label>Your Guess Here:</label>
-                    <input class="input is large"type="text" name="Animal Guess" value="Guess the Animal" placeholder="Guess the Animal!" id="user-guess-input">
+                    <input class="input is large"type="text" name="Animal Guess" value=" " placeholder="Guess the Animal!" id="user-guess-input">
                     <button class="rpgui-button button"type="button" id="guess-animal-button">Submit Guess</button>
                 </div>
             </div>
@@ -79,6 +79,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                 <h4>Animal Type</h4>
+                                <p>Cost:20 bananas</p>
                             </div>
                             <div class="flip-card-back">
                                 <h4>Animal Type</h4>
@@ -93,6 +94,7 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>Active Time</h4>
+                            <p>Cost:10 bananas</p>
                         </div>
                         <div class="flip-card-back">
                             <h4>Active Time</h4>
@@ -106,6 +108,7 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>Length</h4>
+                            <p>Cost:10 bananas</p>
                         </div>
                         <div class="flip-card-back">
                             <h4>Length</h4>
@@ -119,6 +122,7 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>Weight</h4>
+                            <p>Cost:10 bananas</p>
                         </div>
                         <div class="flip-card-back">
                             <h4>Weight</h4>
@@ -132,6 +136,7 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>Habitat</h4>
+                            <p>Cost:10 bananas</p>
                         </div>
                         <div class="flip-card-back">
                             <h4>Habitat</h4>
@@ -145,6 +150,7 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>Reveal the first word</h4>
+                            <p>Cost:50 bananas</p>
                         </div>
                         <div class="flip-card-back">
                             <h4>first word</h4>
@@ -158,6 +164,7 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>Diet</h4>
+                            <p>Cost:10 bananas</p>
                         </div>
                         <div class="flip-card-back">
                             <h4>Diet</h4>
@@ -171,6 +178,7 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>Geo Range</h4>
+                            <p>Cost:10 bananas</p>
                         </div>
                         <div class="flip-card-back">
                             <h4>Geo Range</h4>
@@ -184,11 +192,11 @@
                         <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h4>A portion of the img</h4>
+                            <p>Cost:50 bananas</p>
                         </div>
                         <div class="flip-card-back" >
                             <h4>A portion of the img</h4>
                             <span id="cropped-img-frame">
-                            <img src="assets/images/image-3-e1426360082120.jpeg"  id="cropped-img"/>
                             </span>
                         </div>
                         </div>
