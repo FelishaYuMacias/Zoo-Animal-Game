@@ -1,6 +1,6 @@
 body{
   background-color: rgb(71, 71, 71);
-  display:block;
+  /* display:block; */
     color: aliceblue;
 }
 header {
@@ -9,6 +9,9 @@ font-size: xx-large;
 }
 .hide {
   display: none;
+}
+main {
+  min-height: 100%;
 }
 
 #startGame {
