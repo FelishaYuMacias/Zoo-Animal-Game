@@ -1,13 +1,17 @@
 body{
-  background-color: rgb(60,64,67);
-  display:block;
+  background-color: rgb(71, 71, 71);
+  /* display:block; */
     color: aliceblue;
 }
 header {
 text-align: center;
+font-size: xx-large;
 }
 .hide {
   display: none;
+}
+main {
+  min-height: 100%;
 }
 
 #startGame {
@@ -24,7 +28,13 @@ color: black;
 h2 {
     text-align: center;
 }
-
+ li {
+  text-align: left;
+ }
+#startImage {
+  max-height: 30vh;
+  min-height: 200px;
+}
 .flip-card,   .flip-card-clicked  {
     background-color: transparent;
     width: 100%;
@@ -58,7 +68,7 @@ h2 {
   }
   
   .flip-card-front {
-    background-color:rgb(60,64,67);
+    background-color:rgb(71,71,71);
     color: black;
   }
   
