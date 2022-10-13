@@ -71,6 +71,8 @@ function getStartImage (){
 getStartImage()
 //this is the main function to play our game, it is also where the zoo animal api is accessed
 function playZooGame () {
+    score = 300;
+    scoreSpan.textContent = score;
     var apiLink = "https://zoo-animal-api.herokuapp.com/animals/rand"
     
     // reset clue cards / image blur value
@@ -114,15 +116,14 @@ function playZooGame () {
     //   var wikiLink = "https://en.wikipedia.org/w/api.php?action=parse&page=" + currentAnimalName.toLowerCase() +"&format=json&origin=*" 
 
       // var wikiLinkTwo = "https://en.wikipedia.org/w/api.php?action=query&titles=" + currentAnimalName.toLowerCase() + "&prop=images|extlinks&format=json&origin=*"
-       youtubeAPILoop ();
-
+    
     })
 }
 
 playZooGame();
 
 function youtubeAPILoop() {
-  var key = "AIzaSyD08oROCPxrej9K2XN0nk1Ng5jwKOL5SQ8";
+  var key = "AIzaSyCK6pERvSUvo8X9ZNpbF4s6dS224J3_JpM";
   var youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + currentAnimalName + " animal&key="+key;
 
   fetch(youtubeAPI,{
@@ -136,6 +137,7 @@ function youtubeAPILoop() {
     console.log(data);
 
     info_nameEl.textContent = currentAnimalName;
+    youtubeInfo.textContent = "";
     for (let i = 0; i < data.items.length; i++) {
       var videoID = data.items[i].id.videoId;
       var videoThumbnail = data.items[i].snippet.thumbnails.default.url;
@@ -281,8 +283,6 @@ clue9.addEventListener('click', function(event){
 
     playAgain.addEventListener("click", function(event){
         closeModal(event.target.parentElement.parentElement);
-        score = 300;
-        scoreSpan.textContent = score;
         // clue1.setAttribute("class", " clue flip-card-front")
         playZooGame ();
 
@@ -313,6 +313,7 @@ clue9.addEventListener('click', function(event){
 
     seeInfo.addEventListener("click",function(event){
       closeModal(event.target.parentElement.parentElement);
+      youtubeAPILoop ();
       info.setAttribute("class", "modal is-active")
   });
 
@@ -329,8 +330,13 @@ cardContainerEl.addEventListener('click', function(event){
     
     var clickedEl = event.target;
     // console.log(clickedEl);
-    if ( !(clickedEl.matches(".flip-card-front") ) ) return;
-
+    if ( !(clickedEl.matches(".flip-card-front") ) ) {
+      if (clickedEl.parentElement.matches(".flip-card-front")) {
+        clickedEl = clickedEl.parentElement;
+      } else {
+        return;
+      }
+    } 
     var flipCardEl = clickedEl.parentElement.parentElement;
     flipCardEl.setAttribute('class', ' flip-card-clicked');
 
