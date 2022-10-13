@@ -29,6 +29,10 @@ var youtubeInfo = document.getElementById("youtube-info");
 var wikiInfo = document.getElementById("wiki-info")
 var seeInfo = document.getElementById("see-info")
 var info = document.getElementById("info")
+var info_nameEl = document.getElementById("info-animal-name");
+var infoCloseBtn = document.getElementById("info-close");
+var infoPlayAgainBtn = document.getElementById("info-play-again");
+
 //clue card variables
 var clueEl =document.querySelector("#clue")
 var clue1 = document.getElementById("clue-1")
@@ -41,6 +45,7 @@ var clue7 = document.getElementById("clue-7")
 var clue8 = document.getElementById("clue-8")
 var clue9 = document.getElementById("clue-9")
 var clueArray = [clue1, clue2, clue3, clue4, clue5, clue6, clue7,clue8, clue9]
+
 
 // blur filter value
 var blurNum;
@@ -91,7 +96,7 @@ function playZooGame () {
     //   var wikiLink = "https://en.wikipedia.org/w/api.php?action=parse&page=" + currentAnimalName.toLowerCase() +"&format=json&origin=*" 
 
       // var wikiLinkTwo = "https://en.wikipedia.org/w/api.php?action=query&titles=" + currentAnimalName.toLowerCase() + "&prop=images|extlinks&format=json&origin=*"
-      youtubeAPILoop ();
+       youtubeAPILoop ();
 
     })
 }
@@ -99,8 +104,8 @@ function playZooGame () {
 playZooGame();
 
 function youtubeAPILoop() {
-  var key = "AIzaSyAEkx7deEPcjktkroCKQIJ7aH62J-beJ4U";
-  var youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + currentAnimalName + "animal&key="+key;
+  var key = "AIzaSyD08oROCPxrej9K2XN0nk1Ng5jwKOL5SQ8";
+  var youtubeAPI = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + currentAnimalName + " animal&key="+key;
 
   fetch(youtubeAPI,{
     cache: "reload",
@@ -112,6 +117,7 @@ function youtubeAPILoop() {
   .then(function (data) {
     console.log(data);
 
+    info_nameEl.textContent = currentAnimalName;
     for (let i = 0; i < data.items.length; i++) {
       var videoID = data.items[i].id.videoId;
       var videoThumbnail = data.items[i].snippet.thumbnails.default.url;
@@ -119,6 +125,7 @@ function youtubeAPILoop() {
       var videoDescription = data.items[i].snippet.description;
 
       var thumbnailContainer = document.createElement("section");
+      var thumbArticle = document.createElement("article");
       var thumbnailImage = document.createElement("img");
       var thumbnailTitle = document.createElement("h3");
       var descriptionParagraph = document.createElement("p");
@@ -130,8 +137,9 @@ function youtubeAPILoop() {
       thumbnailURL.appendChild(thumbnailImage);
       thumbnailURL.setAttribute("href", "https://www.youtube.com/watch?v=" + videoID);
       thumbnailURL.setAttribute("target", "_blank");
+      thumbArticle.append(thumbnailTitle, descriptionParagraph)
 
-      thumbnailContainer.append(thumbnailTitle, descriptionParagraph, thumbnailURL);
+      thumbnailContainer.append(thumbnailURL, thumbArticle);
 
       youtubeInfo.appendChild(thumbnailContainer);
       
@@ -279,6 +287,15 @@ clue9.addEventListener('click', function(event){
       closeModal(event.target.parentElement.parentElement);
       info.setAttribute("class", "modal is-active")
   });
+
+  infoCloseBtn.addEventListener('click', function(event){
+      closeModal(event.target.parentElement.parentElement);
+  })
+
+  infoPlayAgainBtn.addEventListener('click', function(event){
+      closeModal(event.target.parentElement.parentElement);
+      playZooGame ();
+  })
 
 cardContainerEl.addEventListener('click', function(event){
     
