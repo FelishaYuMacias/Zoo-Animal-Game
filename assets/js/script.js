@@ -69,9 +69,11 @@ function playZooGame () {
         clueFirstwordEl.textContent = 'There is only one word';
       }
     //   use action instead of parse
-      var wikiLink = "https://en.wikipedia.org/w/api.php?action=parse&page=" + currentAnimalName.toLowerCase() +"&format=json&origin=*" 
+    //   var wikiLink = "https://en.wikipedia.org/w/api.php?action=parse&page=" + currentAnimalName.toLowerCase() +"&format=json&origin=*" 
 
-      fetch(wikiLink,{
+      var wikiLinkTwo = "https://en.wikipedia.org/w/api.php?action=query&titles=" + currentAnimalName.toLowerCase() + "&prop=images|extlinks&format=json&origin=*"
+
+      fetch(wikiLinkTwo,{
         cache: "reload",
       })
       .then(function (response) {
@@ -80,7 +82,10 @@ function playZooGame () {
       })
       .then(function (data) {
         console.log(data);
-        wikiInfo.innerHTML=data.parse.text["*"]
+        // var pageID = 
+        // console.log(pageID);
+        // wikiInfo.innerHTML=data.query.pages.pageid.images[0];
+        
       })
     })
 }
