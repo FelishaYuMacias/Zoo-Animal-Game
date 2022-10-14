@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+	<title>Zoo Animal Game</title>
+    <!-- linked our favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <!-- linked css framework  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="./dist/rpgui.css" rel="stylesheet" type="text/css" >
+    <!-- <link href="./dist/rpgui.min.css" rel="stylesheet" type="text/css"> -->
+    <script src="./dist/rpgui.js"></script>   
+    <script src="./dist/rpgui.min.js"></script>
+    <!-- linked our custom stylesheet  -->
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+	
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>RPGUI - RPG-style gui in HTML5!</title>
+  </head>
+
+  
+  <body>
+  <div id="startPage" class="rpgui-content" style="overflow-y:scroll;">
+    <div id="container">
+	  <div id="main"></div>
+      <div class="inner rpgui-container framed rpgui-center" style="position:relative">
+            <header>
+                <h1 style="font-size:250%">Welcome to the Zoo Animal Game!</h1>
+            </header>
+            <main>
+                <h4 style="font-size:125%">You will be presented with a random zoo animal. Try to guess it's official name. You are given a bunch of bananas to start.</h4>
+                <h2>How to Play:</h2>
+                    <ul>
+                        <li>
+                        Click on the clues you want to reveal to help you guess correctly.
+                        </li> 
+                        <li>Be careful! Each clue will deduct bananas from your bunch. 
+                        <li> Wrong guesses will also deduct bananas from your bunch.</li> 
+                        </li> 
+                        <li>Correctly guessing the name will add bananas back to your bunch.
+                        </li>
+                        <li>Your final score is the number of bananas you have left in your bunch.
+                        </li>
+                    </ul>
+                <div id="start-image-and-info">
+                    <span><img src="" id="startImage"/></span>
+                    <ul id="startImageInfo"></ul>
+                </div>
+                    
+                <h4 style="font-size:125%">Regardless of whether you can guess the animal, you will be given more information about your animal at the end of the game.</h4> 
+                <button id="startGame"class="rpgui-button" type="button">Start Game</button>
+            </main>
+		</div>
+      </div>
+	 </div>
+
+  
+     
+     <section id = "gamePage" class="hide rpgui-content" style="overflow-y:scroll;">
+        <div id="container">
+          <div id="main"></div>
+          <div class="inner rpgui-container framed" style="position:relative">
+
+                <!-- modal for wiki info -->
+                <div class="modal" id="info">
+                    <div class="modal-background"></div>
+                    <div class="modal-content rpgui-container framed">
+                        <h1 id="info-animal-name"></h1>
+                        <h2>Related Videos</h2>
+                        <div id="youtube-info"></div>
+                        <div id="wiki-info"></div>
+                        <button id="info-close">close</button>
+                        <button id="info-play-again">play again</button>
+                    </div>
+                </div>
+                
+                <div class="left-side">
+                    <section class="top">
+                    <p>Your current banana bunch is: <span id = "score-span"><b>300</b></span> bananas</p>
+                    
+                    <div id="img-container">
+                        <span><img src="" id="blur-image"/></span>
+                        
+                        <div id="input-container">
+                            <label>Your Guess Here:</label>
+                            <input class="input is large"type="text" name="Animal Guess" value="" placeholder="Guess the Animal!" id="user-guess-input">
+                            <button class="rpgui-button button"type="button" id="guess-animal-button">Submit Guess</button>
+                        </div>
+                    </div>
+                    </section>
+
+                    <div id="quiz-result-correct" class="quiz-result">
+                        <section>
+                            <img src="assets/images/monkey2.webp" class="funimg"/>
+                            <nav>
+                                <button id = "see-info">See more?</button>
+                                <button id = "play-again">Play Again?</button>
+                            </nav>
+                            <p><span id="congrat">Congratulation!<br /></span>The name is <span id="show-answer"></span>!</p>
+                        </section>
+                    </div>
+
+                    <div id="quiz-result-wrong" class="quiz-result">
+                        <section>
+                            <img src="assets/images/monkey.webp" class="funimg"/>
+                            <nav>
+                                <button id = "quit-game">Quit Game?</button>
+                                <button id = "guess-again">Guess Again?</button>
+                            </nav>
+                            <p>Great guess but not quite right. <br />Try again!</p>
+                        </section>
+                    </div>
+                </div>
+        
+        
+                
+                    <div id="card-container">
+                        <div class="clue" id="clue-1">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <h4>Animal Type</h4>
+                                        <p>Cost:20 bananas</p>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h4>Animal Type</h4>
+                                        <p id="clue-type"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="clue" id="clue-2">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Active Time</h4>
+                                    <p>Cost:10 bananas</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h4>Active Time</h4>
+                                    <p id="clue-active"></h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clue" id="clue-3">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Length</h4>
+                                    <p>Cost:10 bananas</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h4>Length</h4>
+                                    <p id="clue-length"></h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clue" id="clue-4">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Weight</h4>
+                                    <p>Cost:10 bananas</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h4>Weight</h4>
+                                    <p id="clue-weight"></h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clue" id="clue-5">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Habitat</h4>
+                                    <p>Cost:10 bananas</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h4>Habitat</h4>
+                                    <p id="clue-habitat"></h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clue" id="clue-6">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Reveal the first word</h4>
+                                    <p>Cost:50 bananas</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h4>first word</h4>
+                                    <p id="clue-firstword"></h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clue" id="clue-7">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Diet</h4>
+                                    <p>Cost:10 bananas</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h4>Diet</h4>
+                                    <p id="clue-diet">Pellets, fruits and veggies</h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clue" id="clue-8">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Geo Range</h4>
+                                    <p>Cost:10 bananas</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h4>Geo Range</h4>
+                                    <p id="clue-geo">Raised domestically around the world</h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clue img-cropped" id="clue-9">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>A portion of the img</h4>
+                                    <p>Cost:50 bananas</p>
+                                </div>
+                                <div class="flip-card-back" >
+                                    <h4>A portion of the img</h4>
+                                    <span id="cropped-img-frame">
+                                    </span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div> 
+            </div>
+          </div>    
+            </section>
+     <!-- linked our custom js  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/js/script.js"></script>
+  </body>
+</html>
