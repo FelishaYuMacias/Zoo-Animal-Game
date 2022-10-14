@@ -5,17 +5,24 @@ Bootcamp Project 1
 
 This is a Zoo Animal Game inspired by 20 questions. Hopefully when you are done playing you have learned something and had fun doing it.
 
-
-
 ## Usage
 
 On load you are presented with a random animal and fact, instructions on how to play, and a start button.
 
-After hitting start you are given a new random animal with a blurred image and clue cards. You are also given a bunch of bananas. Each clue is deducts a different number of bananas from your bunch and will help you guess the animal.
+![Start Page](./assets/images/start-page-screenshot.png)
+
+After hitting start you are given a new random animal with a blurred image and clue cards. You are also given a bunch of bananas. Each clue deducts a different number of bananas from your bunch and will help you guess the animal.
+
+![Game Start](./assets/images/game-load-screenshot.png)
+
+![Clue Flipped](./assets/images/clue-flipped-screenshot.png)
 
 Wrong answers also deduct bananas.
 
-Correct guesses add bananas. 
+![Wrong Guess](./assets/images/wrong-guess-screenshot.png)
+
+Correct guesses adds bananas. 
+
 
 The bananas left in your bunch at the end of the game is your final score.
 
@@ -23,10 +30,11 @@ At any point you can choose to quit or play again.
 
 Regardless of whether you can guess the animal correctly, at the end of the game you are presented with the unblurred picture and name of the animal and the option to see more information.
 
+![Correct Guess](./assets/images/correct-guess-screenshot.png)
+
 Choosing to see more infomration will present you with a list of YouTube videos about that animal.
 
-
-![alt text](assets/images/screenshot.png)
+![Video List](./assets/images/related-videos-screenshot.png)
 
 ## Credits
 
@@ -59,6 +67,14 @@ https://medium.com/@cmurphy580/a-quick-walkthrough-of-the-youtube-api-javascript
 
 w3Schools - Flip Card with CSS
 https://www.w3schools.com/howto/howto_css_flip_card.asp
+
+## Project Links
+
+Deployed Site
+https://felishayumacias.github.io/Zoo-Animal-Game/
+
+Project Repo
+https://github.com/FelishaYuMacias/Zoo-Animal-Game
 
 ## License
 
