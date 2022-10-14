@@ -1,18 +1,15 @@
 body{
   background-color: rgb(71, 71, 71);
-  /* display:flex; */
-    color: aliceblue;
-    max-height: min-content;
-    overflow: auto;
+  display:block;
+  color: aliceblue;
 }
-header {
+/* header {
 text-align: center;
 font-size: xx-large;
-}
+} */
 .hide {
   display: none;
 }
-
 #startGame {
     align-content: center;
 }
