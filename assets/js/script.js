@@ -212,7 +212,8 @@ guessAnimalButton.addEventListener('click', function(event){
         score += 100;
         scoreSpan.textContent = score;
         console.log(score);
-        
+
+        quizResultWrongEl.setAttribute('style','display:none');
         quizResultCorrectEl.setAttribute('style','display:block');
         congratEl.setAttribute('style', 'display:block;');
         showAnswerEl.textContent = currentAnimalName;
@@ -226,7 +227,8 @@ guessAnimalButton.addEventListener('click', function(event){
 
         scoreSpan.textContent = score;
         //image pops up telling user their answer was incorrect
-        console.log("try again")
+        console.log("try again");
+        quizResultCorrectEl.setAttribute('style','display:none');
         quizResultWrongEl.setAttribute('style','display:block');
     };
     userGuessInput.value = "";
