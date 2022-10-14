@@ -1,3 +1,22 @@
+html {background: #222;}
+body, #container
+{
+  background: #222;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.inner
+{
+  background: #444;
+  padding-left:20px;
+  padding-right:20px;
+  /* min-width: 740px;*/
+  width:95vw;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 body{
   background-color: rgb(71, 71, 71);
   display:block;
@@ -13,14 +32,7 @@ font-size: xx-large;
 #startGame {
     align-content: center;
 }
-.clue {
-/* background-color: yellow; */
-/* min-height: 300px; */
-width: 30%;
-display: inline-flex;
-margin: 10px;
-color: black;
-}
+
 h2 {
     text-align: center;
 }
@@ -32,54 +44,56 @@ h2 {
   min-height: 200px;
 }
 .flip-card,   .flip-card-clicked  {
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    perspective: 1000px;
-  }
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
   
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
   
-  /* .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  } */
-  .flip-card-clicked .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  .flip-card-front {
-    background-color:rgb(71,71,71);
-    color: black;
-  }
-  
-  .flip-card-back {
-    background-color: goldenrod;
-    color: white;
-    transform: rotateY(180deg);
-    overflow: hidden;
-  }
+.flip-card-clicked .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border:2px solid #442434;
+}
+
+.flip-card-front {
+  background-color:rgb(71,71,71);
+  color: black;
+}
+
+.flip-card-back {
+  background-color: goldenrod;
+  color: white;
+  transform: rotateY(180deg);
+  overflow: hidden;
+}
 
 #card-container{
-    width:90%;margin:0 auto;
+    width:60%;
     display:flex;
     flex-wrap: wrap;
     background-color:  rgb(203, 119, 17);
+    padding:10px 10px 0;
+    justify-content: space-around;
+    align-content: flex-start;
+   
 }
 
 #cropped-img-frame {
@@ -91,29 +105,54 @@ h2 {
   background-size:800px;
 }    
     
+.clue {
+  /* background-color: yellow; */
+  /* min-height: 300px; */
+  width: 32%;
+  display: inline-flex;
+  color: black;
+  height:200px;
+  margin-bottom:10px;
+}
 
 
-.clue{width:180px;height:200px;margin:5px;}
+/* .clue{width:180px;height:200px;margin:5px;} */
 
 .img-blur .flip-card-back img{width:100%;filter:blur(10px)}
+.rpgui-content input::placeholder { 
+  color:#999;
+  text-shadow: none;
+}
 
-.container{display:flex;width:90%;margin:10px auto;justify-content: space-between;}
+#startPage ul{list-style-type: disc;}
+#startPage.rpgui-content li{font-size:0.93em;}
+#gamePage .inner{
+  display:flex;
+  justify-content: space-between;
+}
+#gamePage .left-side{
+  display:flex;
+  flex-direction: column;
+
+  width:38%;
+}
+
 #img-container{
-    width:38%;
+    /* width:38%;*/
     display:flex;
     flex-direction: column;
-    align-items: flex-start;}
- #img-container span{overflow:hidden;
-    border:1px solid black;
-    border-radius: 10px;}   
-#card-container2{
-    width:58%;margin:0 auto;
-    display:flex;
-    flex-wrap: wrap;
-    background-color: rgb(203, 119, 17);
-}
+    align-items: flex-start; 
+  }
+#img-container span{
+  overflow:hidden;
+  border:1px solid black;
+  border-radius: 10px;
+  max-height: 350px;
+  display:block;
+  margin-bottom:5px;
+}   
+
 #img-container img{width:100%;filter:blur(30px)} 
-#card-container2 .clue{width:180px;height:180px;}
 
 #info h1{
   font-size:1.6em;
@@ -139,4 +178,48 @@ h2 {
   font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 1.2;
   font-size:1.1em;
+}
+.quiz-result{display: none;}
+.quiz-result section {
+display:flex;
+margin-top:15px;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.quiz-result nav{
+  width:200px;
+}
+.quiz-result .funimg{
+  margin-left:-10px;
+  width:140px;
+}
+#quiz-result-wrong .funimg{
+  margin-bottom:-20px;
+}
+
+.quiz-result p{padding:5px 0 0 5px;}
+.quiz-result button{margin-right:5px;margin-top:8px;}
+#show-answer{color:yellow;}
+
+/* Small smartphones - image placeholders change color */
+@media screen and (max-width: 768px) {
+  .clue {
+    width: 48%;
+  }
+}
+
+/* Small smartphones - image placeholders change color */
+@media screen and (max-width: 576px) {
+  #gamePage .inner{
+    flex-direction: column;
+  }
+  #gamePage .left-side{
+    width:80%;
+    margin-bottom:10px;}
+  #card-container{
+    width:100%;
+  }
+  .clue {
+    width: 32%;
+  }
 }
