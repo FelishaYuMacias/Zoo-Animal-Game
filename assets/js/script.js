@@ -19,6 +19,7 @@ var startGameBtn = document.getElementById("startGame")
 var startPage = document.getElementById("startPage")
 var gamePage = document.getElementById("gamePage")
 var startImage = document.getElementById("startImage")
+var startImageInfo = document.getElementById("startImageInfo");
 
 var quitGameBtn = document.getElementById("quit-game");
 var guessAgnBtn = document.getElementById("guess-again");
@@ -67,6 +68,36 @@ function getStartImage (){
     // data.image_link
     
     startImage.setAttribute("src", data.image_link);
+    var startImageAnimalName = document.createElement("li");
+    startImageAnimalName.textContent = "Name: " + data.name;
+    startImageInfo.appendChild(startImageAnimalName);
+
+    var startImageAnimalLatinName = document.createElement("li");
+    startImageAnimalLatinName.textContent = "Latin Name: " + data.latin_name;
+    startImageInfo.appendChild(startImageAnimalLatinName);
+
+    var startImageAnimalLife = document.createElement("li");
+    startImageAnimalLife.textContent = "Lifespan: " + data.lifespan + " years";
+    startImageInfo.appendChild(startImageAnimalLife);
+    
+    var startImageAnimalType = document.createElement("li");
+    startImageAnimalType.textContent = "Type: " + data.animal_type;
+    startImageInfo.appendChild(startImageAnimalType);
+
+    var startImageAnimalRange = document.createElement("li");
+    startImageAnimalRange.textContent = "Geo-Range: " + data.geo_range;
+    startImageInfo.appendChild(startImageAnimalRange);
+
+    var startImageAnimalHabitat = document.createElement("li");
+    startImageAnimalHabitat.textContent = "Habitat: " + data.habitat;
+    startImageInfo.appendChild(startImageAnimalHabitat);
+
+    var startImageAnimalDiet = document.createElement("li");
+    startImageAnimalDiet.textContent = "Diet: " + data.diet;
+    startImageInfo.appendChild(startImageAnimalDiet);
+
+
+
 })
 }
 
