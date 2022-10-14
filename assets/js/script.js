@@ -33,7 +33,7 @@ var info = document.getElementById("info")
 var info_nameEl = document.getElementById("info-animal-name");
 var infoCloseBtn = document.getElementById("info-close");
 var infoPlayAgainBtn = document.getElementById("info-play-again");
-
+var correctAnswerText = document.getElementById("correctAnswerText")
 //clue card variables
 var clueEl =document.querySelector("#clue")
 var clue1 = document.getElementById("clue-1")
@@ -105,7 +105,7 @@ function playZooGame () {
       croppedImgFrame.setAttribute('style', 'background-image:url('+data.image_link+');');
       currentAnimalName = data.name;
       correctGuessPic.setAttribute("src", data.image_link);
-      
+      correctAnswerText.textContent = "Your animal was a " + data.name +" !"
       var nameWordArr = data.name.split(" ");
       if (nameWordArr.length > 1){
         clueFirstwordEl.innerHTML = nameWordArr[0] + "<br />("+nameWordArr.length+" words)";
