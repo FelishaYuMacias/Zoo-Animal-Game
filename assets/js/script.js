@@ -304,8 +304,8 @@ clue9.addEventListener('click', function(event){
     //add event listener for Start Gamee button to hide start page and reveal game page
 
     startGameBtn.addEventListener("click", function(){
-      startPage.setAttribute("class", "hide rpgui-container framed rpgui-center")
-      gamePage.setAttribute("class", "show")
+      startPage.setAttribute("class", "hide rpgui-content")
+      gamePage.setAttribute("class", "show rpgui-content")
     })
 
     //add event listener for "See Info" button

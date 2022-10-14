@@ -1,19 +1,15 @@
 body{
   background-color: rgb(71, 71, 71);
-  /* display:block; */
-    color: aliceblue;
+  display:block;
+  color: aliceblue;
 }
-header {
+/* header {
 text-align: center;
 font-size: xx-large;
-}
+} */
 .hide {
   display: none;
 }
-main {
-  min-height: 100%;
-}
-
 #startGame {
     align-content: center;
 }
