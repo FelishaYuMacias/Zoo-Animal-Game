@@ -56,7 +56,7 @@ var blurNum;
 
 //function to get Start Page Image from zoo API
 function getStartImage (){
-  var apiLink = "https://zoo-animal-api.herokuapp.com/animals/rand"
+  var apiLink = "https://zoo-animal-api.herokuapp.com/api/animals/random"
   fetch(apiLink, {
     cache: "reload",
   })
@@ -77,7 +77,7 @@ function getStartImage (){
     startImageInfo.appendChild(startImageAnimalLatinName);
 
     var startImageAnimalLife = document.createElement("li");
-    startImageAnimalLife.textContent = "Lifespan: " + data.lifespan + " years";
+    startImageAnimalLife.textContent = "Lifespan: " + data.lifespan;
     startImageInfo.appendChild(startImageAnimalLife);
     
     var startImageAnimalType = document.createElement("li");
@@ -106,7 +106,7 @@ getStartImage()
 function playZooGame () {
     score = 300;
     scoreSpan.textContent = score;
-    var apiLink = "https://zoo-animal-api.herokuapp.com/animals/rand"
+    var apiLink = "https://zoo-animal-api.herokuapp.com/api/animals/random"
     
     // reset clue cards / image blur value / hide guess result modules
     var flippedCardElArr = document.querySelectorAll('.flip-card-clicked');
@@ -132,8 +132,8 @@ function playZooGame () {
       blurImageEl.setAttribute('src', data.image_link);
       clueTypeEl.textContent = data.animal_type;
       clueActiveEl.textContent = data.active_time;
-      clueLengthEl.textContent = data.length_min + ' - '+ data.length_max + ' ft.';
-      clueWeightEl.textContent = data.weight_min + ' - '+data.weight_max + ' lbs.';
+      clueLengthEl.textContent = data.length_min + ' - '+ data.length_max ;
+      clueWeightEl.textContent = data.weight_min + ' - '+data.weight_max ;
       clueHabitatEl.textContent = data.habitat;
       clueDietEl.textContent = data.diet;
       clueGeoEl.textContent = data.geo_range;
